@@ -3,12 +3,12 @@
 void print_buffer(char buffer[], int *buff_ind);
 
 /**
- * print_f - Entry Point
+ * _printf - Entry Point
  * Desc: Printf function
  * @format: format.
  * Return: the number of characters printed.
  */
-int print_f(const char *format, ...)
+int _printf.c(const char *format, ...)
 {
 	int x, printed = 0, printed_chars = 0;
 	int flags, width, precision, size, buff_ind = 0;

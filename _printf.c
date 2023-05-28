@@ -8,7 +8,7 @@ void print_buffer(char buffer[], int *buff_ind);
  * @format: format.
  * Return: the number of characters printed.
  */
-int _printf.c(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	int x, printed = 0, printed_chars = 0;
 	int flags, width, precision, size, buff_ind = 0;
@@ -24,7 +24,7 @@ int _printf.c(const char *format, ...)
 	{
 		if (format[x] != '%')
 		{
-			buffer[buff_ind++] = format[i];
+			buffer[buff_ind++] = format[x];
 			if (buff_ind == BUFF_SIZE)
 				print_buffer(buffer, &buff_ind);
 			printed_chars++;

@@ -2,8 +2,9 @@
 
 /****************** PRINT POINTER ******************/
 /**
- * print_pointer - Prints the value of a pointer variable
- * @types: List a of arguments
+ * print_pointer - Entry Point
+ * Desc: Prints the value of a pointer variable
+ * @types: List of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width
@@ -47,15 +48,16 @@ int print_pointer(va_list types, char buffer[],
 
 	ind++;
 
-	/*return (write(1, &buffer[x], BUFF_SIZE - x - 1));*/
+	/*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
 	return (write_pointer(buffer, ind, length,
 		width, flags, padd, extra_c, padd_start));
 }
 
 /************************* PRINT NON PRINTABLE *************************/
 /**
- * print_non_printable - Prints ascii codes in hexa of non printable chars
- * @types: Lista of arguments
+ * print_non_printable - Entry Point
+ * Desc: Prints ascii codes in hexa of non printable chars
+ * @types: List of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width
@@ -79,7 +81,7 @@ int print_non_printable(va_list types, char buffer[],
 
 	while (str[x] != '\0')
 	{
-		if (is_printable(str[i]))
+		if (is_printable(str[x]))
 			buffer[x + offset] = str[x];
 		else
 			offset += append_hexa_code(str[x], buffer, x + offset);
@@ -94,7 +96,8 @@ int print_non_printable(va_list types, char buffer[],
 
 /************************* PRINT REVERSE *************************/
 /**
- * print_reverse - Prints reverse string.
+ * print_reverse - Entry Point
+ * Desc: prints a string in reverse
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -138,7 +141,7 @@ int print_reverse(va_list types, char buffer[],
 /************************* PRINT A STRING IN ROT13 *************************/
 /**
  * print_rot13string - Print a string in rot13.
- * @types: Lista of arguments
+ * @types: List of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width
@@ -151,7 +154,7 @@ int print_rot13string(va_list types, char buffer[],
 {
 	char x;
 	char *str;
-	unsigned int x, j;
+	unsigned int a, j;
 	int count = 0;
 	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
@@ -165,11 +168,11 @@ int print_rot13string(va_list types, char buffer[],
 
 	if (str == NULL)
 		str = "(AHYY)";
-	for (x = 0; str[x]; x++)
+	for (a = 0; str[a]; a++)
 	{
 		for (j = 0; in[j]; j++)
 		{
-			if (in[x] == str[x])
+			if (in[j] == str[a])
 			{
 				x = out[j];
 				write(1, &x, 1);
@@ -179,7 +182,7 @@ int print_rot13string(va_list types, char buffer[],
 		}
 		if (!in[j])
 		{
-			x = str[x];
+			x = str[a];
 			write(1, &x, 1);
 			count++;
 		}

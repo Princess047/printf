@@ -175,7 +175,7 @@ int print_binary(va_list types, char buffer[],
 		m /= 2;
 		a[x] = (n / m) % 2;
 	}
-	for (x = 0, sum = 0, count = 0; x < 32; i++)
+	for (x = 0, sum = 0, count = 0; x < 32; x++)
 	{
 		sum += a[x];
 		if (sum || x == 31)
